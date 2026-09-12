@@ -2,96 +2,79 @@
 
 
 
-# [Project Name] 🎯
+# Paara ft. Swayam
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: Clock'in
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Rabahuddin K P - Government Engineering College, Kozhikode
+- Member 2: Fathima Fidha MA - Government Engineering College, Kozhikode
 
 ### Project Description
-[2-3 lines about what your project does]
+Paara is a student sleepiness detection system that uses a webcam to check whether a student is becoming sleepy.
+
+It detects things like closed eyes, head leaning down, resting the head on the desk, and yawning. The system runs directly in the browser, so the user only needs to open the website and allow camera access.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Student sleeping in class who needs to be woken up by a meme audio targeted at them
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+We built 'Paara' to look for different signs of sleepiness:
+
+- Eyes staying closed: Detects how long the eyes remain closed, ignoring normal blinking, and identifies it as sleeping when they stay closed for too long.
+
+- Head staying down: detects when students head remains down for too long.
+
+- Head resting on the desk: detects when students head is close to desk for too long
+
+- Yawning: Detects when student Yawns
+
+After detecting, a meme audio is played aloud to wake up and humorously target the sleeping student
+
+For example, a normal blink should not be detected as sleeping. So the eyes need to stay closed for a few seconds before the system marks the student as sleeping.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **Python** - used for the first working prototype
+- **OpenCV** - used during the prototype
+- **MediaPipe** - face and body landmark detection
+- **Flask** - used in the first prototype
+
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- Laptop
+- Built-in webcam
 
 ### Implementation
 For Software:
-# Installation
-[commands]
+I built the project in two main stages.
+First Prototype,
+I first made a working version using Python, OpenCV, MediaPipe and Flask.
+The webcam was read by Python and the MediaPipe models were used to detect the face and body.
+I started by testing each part separately:
+After getting each part working, I combined them to detect sleepiness.
+Detecting Closed Eyes,
+To detect closed eyes, I used the points around the eyes provided by MediaPipe.
+I calculated the Eye Aspect Ratio (EAR).
+EAR = Eye height / Eye width
 
-# Run
-[commands]
-
-### Project Documentation
-For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+<img width="1280" height="832" alt="Screenshot 2026-09-12 at 6 45 53 AM" src="https://github.com/user-attachments/assets/b7090714-5aa6-4457-b9fb-6347744a1443" />
+*Eyes open*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+<img width="1280" height="832" alt="Screenshot 2026-09-12 at 6 48 33 AM" src="https://github.com/user-attachments/assets/46f5bec9-9210-4336-bb3d-58389c7edd38" />
+*Eyes Closed*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
-
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
-
-### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
-
-# Additional Demos
-[Add any extra demo materials/links]
-
-## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+<img width="1280" height="832" alt="Screenshot 2026-09-12 at 6 50 18 AM" src="https://github.com/user-attachments/assets/1e028f64-0647-4640-b625-7db0ca9c09ac" />
+*Eyes closed for 5 sec detects sleeping*
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 

@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Drowsiness Detector</title>
+
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Student Drowsiness Detector</h1>
+        <p>Real-time classroom monitoring</p>
+    </header>
+
+
+    <div class="start-section">
+
+        <button id="start-button">
+            ▶ START DETECTION
+        </button>
+
+        <p id="start-message">
+            Press Start Detection to begin meme sounds.
+        </p>
+
+    </div>
+
+
+    <!-- TWO CAMERA FEEDS -->
+
+    <div class="camera-grid">
+
+        <!-- NORMAL CAMERA -->
+
+        <div class="camera-card">
+
+            <h2>Normal Camera</h2>
+
+            <div class="camera-container">
+                <canvas id="normal-canvas"></canvas>
+            </div>
+
+        </div>
+
+
+        <!-- DETECTION CAMERA -->
+
+        <div class="camera-card">
+
+            <h2>Detection Camera</h2>
+
+            <div class="detection-container">
+
+                <canvas id="detection-canvas"></canvas>
+
+
+                <!-- STATUS OVERLAY -->
+
+                <div class="detection-overlay">
+
+                    <div class="overlay-item">
+                        <span>Face</span>
+                        <strong id="overlay-face">AWAKE</strong>
+                    </div>
+
+                    <div class="overlay-item">
+                        <span>Eyes</span>
+                        <strong id="overlay-eyes">OPEN</strong>
+                        <small id="overlay-eyes-time">0.0s</small>
+                    </div>
+
+                    <div class="overlay-item">
+                        <span>Head</span>
+                        <strong id="overlay-head">NORMAL</strong>
+                        <small id="overlay-head-time">0.0s</small>
+                    </div>
+
+                    <div class="overlay-item">
+                        <span>Body</span>
+                        <strong id="overlay-body">NORMAL</strong>
+                        <small id="overlay-body-time">0.0s</small>
+                    </div>
+
+                    <div class="overlay-item">
+                        <span>Yawn</span>
+                        <strong id="overlay-yawn">NO YAWN</strong>
+                        <small id="overlay-yawn-time">0.0s</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="legend">
+
+                <span>
+                    <i class="green"></i>
+                    Face
+                </span>
+
+                <span>
+                    <i class="blue"></i>
+                    Eyes
+                </span>
+
+                <span>
+                    <i class="red"></i>
+                    Nose
+                </span>
+
+                <span>
+                    <i class="yellow"></i>
+                    Mouth
+                </span>
+
+                <span>
+                    <i class="pink"></i>
+                    Body
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATUS -->
+
+    <h2 class="section-title">
+        Detection Status
+    </h2>
+
+
+    <div class="status-grid">
+
+        <div class="status-card">
+            <h3>Face</h3>
+            <p id="face-status">AWAKE</p>
+        </div>
+
+        <div class="status-card">
+            <h3>Eyes</h3>
+            <p id="eyes-status">OPEN</p>
+        </div>
+
+        <div class="status-card">
+            <h3>Head</h3>
+            <p id="head-status">NORMAL</p>
+        </div>
+
+        <div class="status-card">
+            <h3>Body</h3>
+            <p id="body-status">NORMAL</p>
+        </div>
+
+        <div class="status-card">
+            <h3>Yawn</h3>
+            <p id="yawn-status">NO YAWN</p>
+        </div>
+
+    </div>
+
+
+    <div class="overall-card">
+
+        <h2>Overall Status</h2>
+
+        <p id="overall-status">AWAKE</p>
+
+    </div>
+
+</div>
+
+
+<!--
+    This video element is only the webcam source.
+    It should NOT be visible on the page.
+-->
+
+<video
+    id="camera"
+    autoplay
+    playsinline
+    muted
+></video>
+
+
+<script type="module" src="static/script.js"></script>
+
+</body>
+</html>

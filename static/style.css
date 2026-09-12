@@ -1,0 +1,363 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+    color: #222;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+header p {
+    margin: 0;
+    color: #666;
+}
+
+
+/* -----------------------------------
+   Start button
+----------------------------------- */
+
+.start-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#start-button {
+    border: none;
+    padding: 15px 35px;
+    border-radius: 10px;
+    background: #222;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#start-button:hover {
+    opacity: 0.85;
+}
+
+#start-button.started {
+    background: #16803c;
+}
+
+#start-button:disabled {
+    cursor: default;
+}
+
+#start-message {
+    color: #666;
+    margin-top: 10px;
+}
+
+
+/* -----------------------------------
+   Camera feeds
+----------------------------------- */
+
+.camera-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.camera-card {
+    background: white;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.camera-card h2 {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 12px;
+}
+
+.camera-container {
+    width: 100%;
+    background: black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.camera-container canvas {
+    width: 100%;
+    display: block;
+}
+
+
+/* -----------------------------------
+   Detection camera + overlay
+----------------------------------- */
+
+.detection-container {
+    position: relative;
+    width: 100%;
+    background: black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.detection-container canvas {
+    width: 100%;
+    display: block;
+}
+
+
+/* Top status bar */
+
+.detection-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    background: rgba(0, 0, 0, 0.72);
+    color: white;
+
+    min-height: 72px;
+}
+
+.overlay-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px 5px;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.overlay-item:last-child {
+    border-right: none;
+}
+
+.overlay-item span {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.overlay-item strong {
+    font-size: 14px;
+}
+
+.overlay-item small {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #ddd;
+}
+
+
+/* Status colors */
+
+#overlay-face {
+    color: #00e676;
+}
+
+#overlay-eyes {
+    color: #00e5ff;
+}
+
+#overlay-head {
+    color: #ffe600;
+}
+
+#overlay-body {
+    color: #ffe600;
+}
+
+#overlay-yawn {
+    color: #00e5ff;
+}
+
+
+/* -----------------------------------
+   Landmark legend
+----------------------------------- */
+
+.legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.legend span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.legend i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.green {
+    background: green;
+}
+
+.blue {
+    background: blue;
+}
+
+.red {
+    background: red;
+}
+
+.yellow {
+    background: yellow;
+}
+
+.pink {
+    background: magenta;
+}
+
+
+/* -----------------------------------
+   Status
+----------------------------------- */
+
+.section-title {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.status-card {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.status-card h3 {
+    margin-top: 0;
+}
+
+.status-card p {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+/* -----------------------------------
+   Overall status
+----------------------------------- */
+
+.overall-card {
+    margin-top: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.overall-card p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* -----------------------------------
+   Hide actual webcam source
+----------------------------------- */
+
+#camera {
+    display: none;
+}
+
+
+/* -----------------------------------
+   Responsive
+----------------------------------- */
+
+@media (max-width: 900px) {
+
+    .camera-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .status-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detection-overlay {
+        min-height: 68px;
+    }
+
+    .overlay-item span {
+        font-size: 12px;
+    }
+
+    .overlay-item strong {
+        font-size: 12px;
+    }
+
+    .overlay-item small {
+        font-size: 11px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detection-overlay {
+        min-height: 60px;
+    }
+
+    .overlay-item {
+        padding: 4px 2px;
+    }
+
+    .overlay-item span {
+        font-size: 9px;
+    }
+
+    .overlay-item strong {
+        font-size: 9px;
+    }
+
+    .overlay-item small {
+        font-size: 8px;
+    }
+}
